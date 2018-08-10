@@ -1,0 +1,12 @@
+.is-hv-align {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.track-list {
+  height: calc(100vh - 72px);
+  margin-top: 48px;
+  padding-bottom: 24px;
+  overflow-y: scroll;
+}

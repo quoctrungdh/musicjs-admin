@@ -16,14 +16,21 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <TrackUploader />
+      <div className="container">
+        {/* <TrackUploader /> */}
+        <div className="navbar is-fixed-top has-shadow">
+          <div className="is-pulled-right">
+            <button className="button is-primary">Add</button>
+          </div>
+        </div>
         <TrackList
           onSelectTrack={this.onSelectTrack}
         />
-        <Player
-          currentTrack={this.state.currentTrack}
-        />
+        <div className="navbar is-fixed-bottom has-shadow is-hv-align">
+          <Player
+            currentTrack={this.state.currentTrack}
+          />
+        </div>
       </div>
     )
   }

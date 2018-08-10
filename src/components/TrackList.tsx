@@ -23,14 +23,36 @@ export default class TrackList extends React.Component {
 
   renderTrackItem = (track) => {
     return (
-      <div key={track.title} onClick={this.props.onSelectTrack(track)}>
-        {track.title}
+      <div
+        key={track.title}
+        className="card"
+        onClick={this.props.onSelectTrack(track)}
+      >
+        <div className="card-content">
+          <div className="media">
+            <div className="media-left">
+            <figure className="image is-64x64">
+              <img className="is-rounded" src="https://bulma.io/images/placeholders/64x64.png" alt="album cover"/>
+            </figure>
+            </div>
+            <div className="media-content">
+              <h5 className="title is-5">{track.title}</h5>
+              <h6 className="subtitle is-6">{track.title}</h6>
+            </div>
+          </div>
+        </div>
       </div>
     )
   }
 
   render() {
-    return this.state.tracks.map(this.renderTrackItem)
+    return (
+      <div className="container">
+        <div className="track-list">
+          {this.state.tracks.map(this.renderTrackItem)}
+        </div>
+      </div>
+    )
   }
 }
 

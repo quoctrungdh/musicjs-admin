@@ -20,6 +20,7 @@
     "react-dom": "^16.4.2"
   },
   "devDependencies": {
+    "node-sass": "^4.9.3",
     "typescript": "^3.0.1"
   }
 }
