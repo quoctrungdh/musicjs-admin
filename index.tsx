@@ -17,12 +17,12 @@ class App extends React.Component {
   render() {
     return (
       <div className="container">
-        {/* <TrackUploader /> */}
         <div className="navbar is-fixed-top has-shadow">
           <div className="is-pulled-right">
             <button className="button is-primary">Add</button>
           </div>
         </div>
+        <TrackUploader />
         <TrackList
           onSelectTrack={this.onSelectTrack}
         />

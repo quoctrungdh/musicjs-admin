@@ -2,6 +2,12 @@ import * as React from 'react';
 
 import trackRepository from '../repositories/trackRepository';
 
+function timeConverter(timeInSec) {
+  const minutes = Math.floor(timeInSec / 60);
+  const seconds = Math.floor(timeInSec %  60);
+  return `${minutes}:${seconds}`
+}
+
 export default class TrackList extends React.Component {
   private unsub: Function;
 
@@ -36,8 +42,9 @@ export default class TrackList extends React.Component {
             </figure>
             </div>
             <div className="media-content">
-              <h5 className="title is-5">{track.title}</h5>
-              <h6 className="subtitle is-6">{track.title}</h6>
+              <p className="is-capitalized">{track.title}</p>
+              <p className="">{track.artist}</p>
+              <p className="has-text-grey">{timeConverter(track.duration)}</p>
             </div>
           </div>
         </div>

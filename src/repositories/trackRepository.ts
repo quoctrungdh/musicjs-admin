@@ -29,10 +29,10 @@ class TrackRepository implements ITrackRepository {
 
   public async addTrack(trackInfo): Promise<{}> {
     try {
-      const { title, file } = trackInfo;
+      const { file, ...trackMetadata } = trackInfo;
 
       const downloadUrl = await this._uploader.upload(file);
-      const uploadedTrackInfo = { title, downloadUrl };
+      const uploadedTrackInfo = { ...trackMetadata, downloadUrl };
 
       return this._db.add(uploadedTrackInfo);
     } catch (error) {
