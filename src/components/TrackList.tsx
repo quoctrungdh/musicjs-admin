@@ -23,7 +23,7 @@ export default class TrackList extends React.Component {
     this.unsub()
   }
 
-  handleListChange = async(tracks) => {
+  handleListChange = tracks => {
     this.setState({ tracks });
   }
 

@@ -5,6 +5,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import TrackUploader from './src/components/TrackUploader';
 import TrackList from './src/components/TrackList';
 import Player from './src/components/Player';
+import TrackTable from './src/components/TrackTable';
 
 class MusicJS extends React.Component {
   state = {
@@ -39,7 +40,8 @@ class MusicJS extends React.Component {
 function MusicAdmin() {
   return (
     <div className="p-6">
-      <TrackUploader />
+      {/* <TrackUploader /> */}
+      <TrackTable />
     </div>
   )
 }

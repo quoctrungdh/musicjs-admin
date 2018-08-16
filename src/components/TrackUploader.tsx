@@ -2,6 +2,8 @@ import * as React from 'react';
 import trackRepository from '../repositories/trackRepository';
 import fileMetadataService from '../services/fileMetadata';
 
+import Button from '../components/base/Button';
+
 function Label({ text }) {
   return (
     <label className="block text-grey-darker font-bold md:text-right mb-1 md:mb-0 pr-4">{text}</label>
@@ -80,13 +82,13 @@ function TrackUploaderForm(props) {
         </div>
       </div>
       <div className="text-center">
-        <button className="bg-purple hover:bg-purple-dark text-white font-bold py-2 px-4 rounded inline-flex items-center">
+        <Button>
           <svg className="fill-current mr-2" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg">
             <path d="M0 0h24v24H0z" fill="none" />
             <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z" />
           </svg>
             Upload
-        </button>
+        </Button>
       </div>
     </form>
   )
