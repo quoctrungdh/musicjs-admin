@@ -2,70 +2,93 @@ import * as React from 'react';
 import trackRepository from '../repositories/trackRepository';
 import fileMetadataService from '../services/fileMetadata';
 
+function Label({ text }) {
+  return (
+    <label className="block text-grey-darker font-bold md:text-right mb-1 md:mb-0 pr-4">{text}</label>
+  )
+}
+
+function Input(props) {
+  const { type, id, value, onChange } = props;
+
+  return (
+    <input
+      type={type}
+      id={id}
+      className="bg-grey-lighter appearance-none border-2 border-grey-lighter rounded w-full py-2 px-4 text-grey-darker leading-tight focus:outline-none focus:bg-white focus:border-purple"
+      value={value}
+      onChange={onChange}
+    />
+  )
+}
+
 function TrackUploaderForm(props) {
   const { onFileChange, onFieldChange, formValue, onSubmit } = props;
   return (
-    <div className="section">
-      <form className="container" onSubmit={onSubmit}>
-        <div className="field">
-          <label className="control" htmlFor="title">Title: </label>
-          <input
+    <form className="w-full" onSubmit={onSubmit}>
+      <div className="md:flex md:items-center mb-6">
+        <div className="md:w-1/4">
+          <Label text="Title: " />
+        </div>
+        <div className="md:w-3/4">
+          <Input
             type="text"
-            name="title"
             id="title"
-            className="input"
             value={formValue.title}
             onChange={onFieldChange('title')}
           />
         </div>
-        <div className="field">
-          <label className="control" htmlFor="title">Artist: </label>
-          <input
+      </div>
+      <div className="md:flex md:items-center mb-6">
+        <div className="md:w-1/4">
+          <Label text="Artist: " />
+        </div>
+        <div className="md:w-3/4">
+          <Input
             type="text"
-            name="artist"
             id="artist"
-            className="input"
             value={formValue.artish}
             onChange={onFieldChange('artist')}
           />
         </div>
-        <div className="field">
-          <label className="control" htmlFor="title">Album: </label>
-          <input
+      </div>
+      <div className="md:flex md:items-center mb-6">
+        <div className="md:w-1/4">
+          <Label text="Album: " />
+        </div>
+        <div className="md:w-3/4">
+          <Input
             type="text"
-            name="album"
             id="album"
-            className="input"
             value={formValue.album}
             onChange={onFieldChange('album')}
           />
         </div>
-        <div className="field">
-          <div className="file has-name">
-            <label className="file-label">
-              <input className="file-input" type="file" name="track" onChange={onFileChange} />
-              <span className="file-cta">
-                <span className="file-icon">
-                  <i className="fas fa-upload"></i>
-                </span>
-                <span className="file-label">
-                  Choose a file…
-                </span>
-              </span>
-              {
-                formValue.file &&
-                <span className="file-name">
-                  {formValue.file.name}
-                </span>
-              }
-            </label>
-          </div>
+      </div>
+      <div className="text-center mb-4">
+        <div className="inline-block relative overflow-hidden">
+          <button className="bg-transparent hover:bg-purple text-purple-dark font-semibold hover:text-white py-2 px-4 border border-purple hover:border-transparent rounded">
+            Select file
+          </button>
+          <input className="cursor-pointer absolute block opacity-0 pin-r pin-t pin-l pin-b" type="file"  onChange={onFileChange} name="track" />
+          {
+            formValue.file &&
+            <p className="file-name">
+              {formValue.file.name}
+            </p>
+          }
         </div>
-        <div className="has-text-centered">
-          <button className="button is-primary">Upload</button>
-        </div>
-      </form>
-    </div>
+      </div>
+      <div className="text-center">
+        <button className="bg-purple hover:bg-purple-dark text-white font-bold py-2 px-4 rounded inline-flex items-center">
+          <svg className="fill-current mr-2" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z" />
+          </svg>
+            Upload
+        </button>
+      </div>
+    </form>
   )
 }
 
