@@ -2,6 +2,21 @@ import * as React from 'react';
 
 import trackRepository from '../repositories/trackRepository';
 import Button from '../components/base/Button';
+import { ModalConsumer } from '../components/Modal';
+import TrackUploader from '../components/TrackUploader';
+
+
+function AddTrackBtn() {
+  return (
+    <ModalConsumer>
+      {({ showModal }) => (
+        <Button onClick={() => showModal(TrackUploader)}>
+          Add
+        </Button>
+      )}
+    </ModalConsumer>
+  )
+}
 
 export default class TrackTable extends React.Component {
   private unsub: Function;
@@ -52,9 +67,7 @@ export default class TrackTable extends React.Component {
           </table>
         </div>
         <div className="text-center mt-4">
-          <Button onClick={() => {}}>
-            Add
-          </Button>
+          <AddTrackBtn />
         </div>
       </div>
     )

@@ -123,7 +123,8 @@ class TrackUploader extends React.Component {
       file
     }
 
-    trackRepository.addTrack(trackInfo);
+    trackRepository.addTrack(trackInfo)
+      .then(this.props.modalControl.hideModal)
   }
 
   render() {
